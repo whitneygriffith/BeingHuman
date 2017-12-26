@@ -1,0 +1,5 @@
+setwd("/home/wgriffith/scripts")
+file1=read.csv("CDH2_merged_data2.txt", header=F, sep="")
+file2=read.csv("CDH2_step1.txt", header=F, sep="")
+merge.data1=merge(file1,file2, by="V4", all=TRUE)
+a=write.table(merge.data1, file="CDH2_merged_data_odd.txt", sep=" ")
