@@ -1,12 +1,7 @@
 #!/bin/bash
 ###################INSTRUCTIONS########################
 
-#YOU WILL NEED 6 FILES in order to run this program: (1) reference cds sequence file (NCBI): input= "$name"2.txt 
-#(2) The converted genomic positions to cds positions file (from UCSC site): input= "$name"_converted_data.txt 
-#(3) Rscript merge file: input= Rscript.R 
-#(4) Rscript merge file for odd columns: input= Rscript_o.R 
-#(5) Rscript merge file for even columns: input= Rscript_e.R 
-#(6) "$name" vcf file 
+#YOU WILL NEED 6 FILES in order to run this program: (1) reference cds sequence file (NCBI): input= "$name"2.txt (2) The converted genomic positions to cds positions file (from UCSC site): input= "$name"_converted_data.txt (3) Rscript merge file: input= Rscript.R (4) Rscript merge file for odd columns: input= Rscript_o.R (5) Rscript merge file for even columns: input= Rscript_e.R (6) "$name" vcf file 
 #be sure to get transcript name (transcript="insert name here with quotes")
 #be sure of the orientation of the bases (for example, do you need to change nucleotide base to its complement?)
 #be sure to change the paths and lists in this program BUT make sure quotations are vertical as opposed to being at an angle
@@ -96,7 +91,7 @@ awk '{ print $1 "\t" $2 "\t" $4 "\t" $3 }' "$mypath"/"$name"_merged_data1.txt > 
 
 echo "----------------- Convert to phased genotypes --------------------------------"
 
-/usr/java/jdk1.8.0_65/bin/java -jar "$mypath"/beagle.07Jan16.9b4.jar gt="$mypath"/1000Genomes_P3_"$name".recode.vcf out="$mypath"/"$name"_phased
+/usr/java/jre1.8.0_131/bin/java -jar "$mypath"/beagle.07Jan16.9b4.jar gt="$mypath"/1000Genomes_P3_"$name".recode.vcf out="$mypath"/"$name"_phased
 
 #ref="$mypath"/ALL."$chr".phase3_shapeit2_mvncall_integrated_v5.20130502.genotypes.vcf.gz 
 
